@@ -106,7 +106,7 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
             >
               <Image
                 resizeMode={'center'}
-                source={require('./icons/delete.png')}
+                source={require('../icons/delete.png')}
                 style={{ width: 18, height: 14, tintColor: '#fff' }}
               />
             </TouchableHighlight>

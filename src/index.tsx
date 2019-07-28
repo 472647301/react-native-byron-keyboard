@@ -17,9 +17,9 @@ type IinstallByronKeyboard = {
   underlayColor?: string
 }
 export function installByronKeyboard(_props: IinstallByronKeyboard) {
-  class KeyBoard extends React.Component {
+  class KeyBoard extends React.Component<{ tag: number }> {
     public render() {
-      return <ByronKeyboard {..._props} />
+      return <ByronKeyboard {..._props} tag={this.props.tag} />
     }
   }
   AppRegistry.registerComponent('RNByronKeyboard', () => KeyBoard)
