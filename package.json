@@ -1,11 +1,10 @@
 {
   "name": "react-native-byron-keyboard",
-  "version": "1.0.0",
-  "description": "",
-  "main": "lib/index.js",
+  "version": "1.0.3",
+  "description": "react-native-byron-keyboard",
+  "main": "src/index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-native"
