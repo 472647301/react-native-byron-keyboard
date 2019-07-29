@@ -3,14 +3,19 @@ import { AppRegistry } from 'react-native'
 import nativeModules from './utils/native'
 import ByronKeyboard from './views/KeyBoard'
 import _ByronTextInput from './views/TextInput'
+import _ByronScrollView from './views/ScrollView'
 
 export const RNByronKeyboard = nativeModules
 
 export const ByronTextInput = _ByronTextInput
 
+export const ByronScrollView = _ByronScrollView
+
 type IinstallByronKeyboard = {
   onClose?: () => void
   onNext?: () => void
+  closeText?: string
+  nextText?: string
   closeView?: JSX.Element
   nextView?: JSX.Element
   children?: JSX.Element

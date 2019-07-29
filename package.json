@@ -1,6 +1,6 @@
 {
   "name": "react-native-byron-keyboard",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react-native-byron-keyboard",
   "main": "src/index.tsx",
   "scripts": {
@@ -23,5 +23,7 @@
     "react-native": "^0.60.4",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-native-yusha-customkeyboard": "^0.1.3"
+  }
 }

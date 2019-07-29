@@ -3,21 +3,16 @@ import nativeModules from '../utils/native'
 import { findNodeHandle } from 'react-native'
 import { TextInput, TextInputProps } from 'react-native'
 
-type IByronTextInput = {
-  keyBoardHeight?: number
-}
-class ByronTextInput extends React.Component<
-  IByronTextInput & TextInputProps
-> {
+type IByronTextInput = {}
+class ByronTextInput extends React.Component<IByronTextInput & TextInputProps> {
   public input: TextInput | null = null
   public timer: number | null = null
 
   public componentDidMount() {
     this.timer = setTimeout(() => {
-      const { keyBoardHeight, onFocus } = this.props
       const reactTag = findNodeHandle(this.input)
       if (reactTag) {
-        nativeModules.install(reactTag, keyBoardHeight || 176)
+        nativeModules.install(reactTag, nativeModules.height)
       }
     }, 300)
   }

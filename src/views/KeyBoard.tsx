@@ -2,13 +2,15 @@ import * as React from 'react'
 import nativeModules from '../utils/native'
 import InteractionManager from '../utils/manager'
 import { TouchableHighlight } from 'react-native'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TextInput } from 'react-native'
 import { StyleSheet } from 'react-native'
 
 type IByronKeyboard = {
   tag?: number
   onClose?: () => void
   onNext?: () => void
+  closeText?: string
+  nextText?: string
   closeView?: JSX.Element
   nextView?: JSX.Element
   children?: JSX.Element
@@ -29,7 +31,7 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
   public onClickClose() {
     const { onClose, tag } = this.props
     if (tag) {
-      nativeModules.uninstall(tag)
+      TextInput.State.blurTextInput(tag)
     }
     if (onClose) {
       onClose()
@@ -37,12 +39,15 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
   }
 
   public render() {
+    const { closeText, nextText } = this.props
     const { nextView, closeView } = this.props
     const { children, underlayColor, onNext } = this.props
     return children ? (
-      children
+      <View style={[styles.keyboard, { height: nativeModules.height }]}>
+        {children}
+      </View>
     ) : (
-      <View style={styles.keyboard}>
+      <View style={[styles.keyboard, { height: nativeModules.height }]}>
         <View style={styles.keyboard_left}>
           <View style={styles.keyboard_left_list}>
             {['1', '2', '3'].map(n => {
@@ -117,13 +122,21 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
             style={styles.keyboard_right_item}
             onPress={this.onClickClose.bind(this)}
           >
-            {closeView || <Text style={styles.keyboard_right_text}>关闭</Text>}
+            {closeView || (
+              <Text style={styles.keyboard_right_text}>
+                {closeText || '关闭'}
+              </Text>
+            )}
           </TouchableHighlight>
           <TouchableHighlight
             style={styles.keyboard_right_item}
             onPress={() => onNext && onNext()}
           >
-            {nextView || <Text style={styles.keyboard_right_text}>下一项</Text>}
+            {nextView || (
+              <Text style={styles.keyboard_right_text}>
+                {nextText || '下一项'}
+              </Text>
+            )}
           </TouchableHighlight>
         </View>
       </View>
