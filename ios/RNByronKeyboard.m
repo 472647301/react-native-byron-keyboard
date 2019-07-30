@@ -19,7 +19,6 @@ RCT_EXPORT_METHOD(install:(nonnull NSNumber *)reactTag height:(nonnull NSNumber 
     
     inputView.autoresizingMask = UIViewAutoresizingNone;
     inputView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, height.floatValue);
-    // inputView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.02];
     UITextField *view = (UITextField *)(((RCTBaseTextInputView*)[_bridge.uiManager viewForReactTag:reactTag]).backedTextInputView);
     
     view.inputView = inputView;

@@ -121,6 +121,7 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
           <TouchableHighlight
             style={styles.keyboard_right_item}
             onPress={this.onClickClose.bind(this)}
+            underlayColor={underlayColor || '#fff'}
           >
             {closeView || (
               <Text style={styles.keyboard_right_text}>
@@ -131,6 +132,7 @@ class ByronKeyboard extends React.PureComponent<IByronKeyboard> {
           <TouchableHighlight
             style={styles.keyboard_right_item}
             onPress={() => onNext && onNext()}
+            underlayColor={underlayColor || '#fff'}
           >
             {nextView || (
               <Text style={styles.keyboard_right_text}>

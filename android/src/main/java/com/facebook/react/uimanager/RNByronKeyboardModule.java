@@ -128,6 +128,7 @@ public class RNByronKeyboardModule extends ReactContextBaseJavaModule {
 
         final float scale = activity.getResources().getDisplayMetrics().density;
         RelativeLayout.LayoutParams lParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Math.round(height*scale));
+        rootView.setBackgroundColor(Color.rgb(24,34,43));
         lParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
         layout.addView(rootView, lParams);
         return layout;
